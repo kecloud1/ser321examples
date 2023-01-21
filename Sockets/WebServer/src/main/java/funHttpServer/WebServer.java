@@ -233,29 +233,7 @@ class WebServer {
 
           // TODO: Include error handling here with a correct error code and
           // a response that makes sense
-
-          //Error code if missing number 1
-          else if (query_pairs.get("num1").isEmpty()) {
-            builder.append("HTTP/1.1 400 Bad Request\n");
-            builder.append("Content-Type: text/html; charset=utf-8\n");
-            builder.append("\n");
-            builder.append("Missing parameter for number 1.");
-          }
-
-          //Error code if missing number 2
-          else if (query_pairs.get("num2").isEmpty()) {
-            builder.append("HTTP/1.1 400 Bad Request\n");
-            builder.append("Content-Type: text/html; charset=utf-8\n");
-            builder.append("\n");
-            builder.append("Missing parameter for number 2.");
-          }
-
-          else {
-            builder.append("HTTP/1.1 400 Bad Request\n");
-            builder.append("Content-Type: text/html; charset=utf-8\n");
-            builder.append("\n");
-            builder.append("Need to enter numbers.");
-          }
+          
 
         } else if (request.contains("github?")) {
           // pulls the query from the request and runs it with GitHub's REST API
