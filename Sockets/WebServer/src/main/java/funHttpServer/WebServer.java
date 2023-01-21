@@ -199,13 +199,16 @@ class WebServer {
 
           Map<String, String> query_pairs = new LinkedHashMap<String, String>();
           // extract path parameters
+          System.out.println("Before query pairs");
+
           query_pairs = splitQuery(request.replace("multiply?", ""));
+
+          System.out.println("Before num1 and 2");
 
           // extract required fields from parameters
           Integer num1 = Integer.parseInt(query_pairs.get("num1"));
           Integer num2 = Integer.parseInt(query_pairs.get("num2"));
 
-          System.out.println(num1.toString() + num2.toString());
 
           // do math
           Integer result = num1 * num2;
