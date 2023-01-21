@@ -204,9 +204,19 @@ class WebServer {
 
           if (query_pairs.get("num1").isEmpty() == false && query_pairs.get("num2").isEmpty() == false){
             // extract required fields from parameters
+            try {
+              Integer num1 = Integer.parseInt(query_pairs.get("num1"));
+              Integer num2 = Integer.parseInt(query_pairs.get("num2"));
+            } catch (NumberFormatException e){
+              builder.append("HTTP/1.1 400 Bad Request\n");
+              builder.append("Content-Type: text/html; charset=utf-8\n");
+              builder.append("\n");
+              builder.append("Invalid number entered");
+            }
+
             Integer num1 = Integer.parseInt(query_pairs.get("num1"));
             Integer num2 = Integer.parseInt(query_pairs.get("num2"));
-
+            
             // do math
             Integer result = num1 * num2;
 
@@ -233,7 +243,7 @@ class WebServer {
             builder.append("HTTP/1.1 400 Bad Request\n");
             builder.append("Content-Type: text/html; charset=utf-8\n");
             builder.append("\n");
-            builder.append("Missing parameter for number 1.");
+            builder.append("Missing parameter for number 2.");
           }
 
           else {
