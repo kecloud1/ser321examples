@@ -205,9 +205,8 @@ class WebServer {
           Integer num1 = Integer.parseInt(query_pairs.get("num1"));
           Integer num2 = Integer.parseInt(query_pairs.get("num2"));
 
-          if(num2 == null){
-            System.out.println("Num 2 null");
-          }
+          System.out.println(num1.toString() + num2.toString());
+
           // do math
           Integer result = num1 * num2;
 
