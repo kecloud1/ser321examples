@@ -205,6 +205,9 @@ class WebServer {
           Integer num1 = Integer.parseInt(query_pairs.get("num1"));
           Integer num2 = Integer.parseInt(query_pairs.get("num2"));
 
+          if(num2 == null){
+            System.out.println("Num 2 null");
+          }
           // do math
           Integer result = num1 * num2;
 
@@ -221,12 +224,6 @@ class WebServer {
             builder.append("Content-Type: text/html; charset=utf-8\n");
             builder.append("\n");
             builder.append("Missing parameter for number 1.");
-          }
-          if(num2 == null){
-            builder.append("HTTP/1.1 400 Bad Request\n");
-            builder.append("Content-Type: text/html; charset=utf-8\n");
-            builder.append("\n");
-            builder.append("Missing parameter for number 2.");
           }
 
         } else if (request.contains("github?")) {
