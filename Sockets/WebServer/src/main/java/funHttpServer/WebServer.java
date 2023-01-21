@@ -206,6 +206,10 @@ class WebServer {
 
           // TODO: Include error handling here with a correct error code and
           // a response that makes sense
+          /*
+          Added a try catch block to catch a NumberFormatException in the case that a parameter is omitted
+          or an invalid number is entered. In that case, notNumber is set to true and error message is written.
+           */
           try {
             Integer num1 = Integer.parseInt(query_pairs.get("num1"));
             Integer num2 = Integer.parseInt(query_pairs.get("num2"));
@@ -213,7 +217,7 @@ class WebServer {
             builder.append("HTTP/1.1 400 Bad Request\n");
             builder.append("Content-Type: text/html; charset=utf-8\n");
             builder.append("\n");
-            builder.append("Invalid number entered");
+            builder.append("Invalid number entered.");
             notNumber = true;
           }
 
