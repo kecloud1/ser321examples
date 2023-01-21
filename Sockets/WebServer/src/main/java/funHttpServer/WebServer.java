@@ -201,8 +201,8 @@ class WebServer {
           // extract path parameters
           query_pairs = splitQuery(request.replace("multiply?", ""));
 
-          if (query_pairs.get("num2") == null) {
-            query_pairs.replace("num2", "1");
+          if (query_pairs.get("num2").isEmpty()) {
+            query_pairs.put("num2", "1");
           }
 
           // extract required fields from parameters
