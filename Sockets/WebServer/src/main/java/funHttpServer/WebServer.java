@@ -205,6 +205,8 @@ class WebServer {
 
           System.out.println("Before num1 and 2");
 
+          System.out.println(Integer.parseInt(query_pairs.get("num2")));
+
           // extract required fields from parameters
           Integer num1 = Integer.parseInt(query_pairs.get("num1"));
           Integer num2 = Integer.parseInt(query_pairs.get("num2"));
