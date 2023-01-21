@@ -204,6 +204,8 @@ class WebServer {
 
           boolean notNumber = false;
 
+          // TODO: Include error handling here with a correct error code and
+          // a response that makes sense
           try {
             Integer num1 = Integer.parseInt(query_pairs.get("num1"));
             Integer num2 = Integer.parseInt(query_pairs.get("num2"));
@@ -215,7 +217,7 @@ class WebServer {
             notNumber = true;
           }
 
-          if (query_pairs.get("num1").isEmpty() == false && query_pairs.get("num2").isEmpty() == false && notNumber == false){
+          if (notNumber == false){
             // extract required fields from parameters
 
             Integer num1 = Integer.parseInt(query_pairs.get("num1"));
@@ -231,9 +233,7 @@ class WebServer {
             builder.append("Result is: " + result);
           }
 
-          // TODO: Include error handling here with a correct error code and
-          // a response that makes sense
-          
+
 
         } else if (request.contains("github?")) {
           // pulls the query from the request and runs it with GitHub's REST API
