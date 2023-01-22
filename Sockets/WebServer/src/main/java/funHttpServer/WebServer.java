@@ -398,7 +398,8 @@ class WebServer {
                 builder.append("Content-Type: text/html; charset=utf-8\n");
                 builder.append("\n");
                 builder.append(chosenDog + " is satisfied by your number of treats. " + chosenDog +
-                        " will be your faithful companion forever.");
+                        " will be your faithful companion forever. <br>");
+                builder.append("<html><body> <img src=''happy.jp'' style =\"max-width:500px;max-height:500px\" /> </body></html>");
               }
               else if(numTreats >= 10) {
                 builder.append("HTTP/1.1 200 OK\n");
