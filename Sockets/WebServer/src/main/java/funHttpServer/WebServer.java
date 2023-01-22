@@ -269,8 +269,13 @@ class WebServer {
 
             for(int i = 0; i<repoArray.length(); i++){
               JSONObject repo = repoArray.getJSONObject(i);
+              JSONObject owner = repo.getJSONObject("owner");
+              String ownerName = owner.getString("login");
               String repoName = repo.getString("name");
-              builder.append(repoName + "\n");
+              builder.append("Repo owner: " + ownerName);
+              builder.append("\n");
+              builder.append("Repo name: " + repoName);
+              builder.append("\n");
 
             }
             // TODO: Parse the JSON returned by your fetch and create an appropriate
