@@ -393,19 +393,19 @@ class WebServer {
                 builder.append(chosenDog + " wishes you had given them more treats. Congratulations, " + chosenDog +
                         " doesn't like you anymore.");
               }
-              else if(numTreats > 5 && numTreats < 10) {
+              else if(numTreats >= 5 && numTreats < 10) {
                 builder.append("HTTP/1.1 200 OK\n");
                 builder.append("Content-Type: text/html; charset=utf-8\n");
                 builder.append("\n");
                 builder.append(chosenDog + " is satisfied by your number of treats. " + chosenDog +
                         " will be your faithful companion forever.");
               }
-              else if(numTreats > 10) {
+              else if(numTreats >= 10) {
                 builder.append("HTTP/1.1 200 OK\n");
                 builder.append("Content-Type: text/html; charset=utf-8\n");
                 builder.append("\n");
                 builder.append("What were you thinking, giving a dog that many treats?? " +chosenDog +
-                        " is now sick and you're going to have to pay a heft vet bill.");
+                        " is now sick and you're going to have to pay a hefty vet bill.");
               }
             }
           }
