@@ -353,7 +353,64 @@ class WebServer {
                   " hardest to pass ser321. After many long nights, and countless cups of coffee, " + name +
                   " passed and moved on to " + possPronoun + " next endeavor.");
 
-        }else {
+        } else if(request.contains("feedthedog")) {
+          Map<String, String> query_pairs = new LinkedHashMap<String, String>();
+          // extract path parameters
+
+          boolean caughtException = false;
+          try {
+            query_pairs = splitQuery(request.replace("feedthedog?", ""));
+            Integer.parseInt(query_pairs.get("numTreats"));
+            Integer.parseInt(query_pairs.get("dogID"));
+          } catch(Exception e) {
+            builder.append("HTTP/1.1 400 Bad Request\n");
+            builder.append("Content-Type: text/html; charset=utf-8\n");
+            builder.append("\n");
+            builder.append("Path specified could not be processed. Please recheck path and try again.");
+            caughtException = true;
+          }
+
+          if (caughtException == false){
+            if (Integer.parseInt(query_pairs.get("dogID")) > 5 || Integer.parseInt(query_pairs.get("dogID")) < 0){
+              builder.append("HTTP/1.1 400 Bad Request\n");
+              builder.append("Content-Type: text/html; charset=utf-8\n");
+              builder.append("\n");
+              builder.append("dogID needs to be a number between 1 and 5. Please try again.");
+            }
+            else {
+              int numTreats = Integer.parseInt(query_pairs.get("numberOfTreats"));
+
+              int dogID = Integer.parseInt(query_pairs.get("dogID")) - 1;
+
+              String dogs[] = {"Willow", "Basil", "Luna", "Sampson", "T-Bone"};
+
+              String chosenDog = dogs[dogID];
+
+              if(numTreats < 5) {
+                builder.append("HTTP/1.1 200 OK\n");
+                builder.append("Content-Type: text/html; charset=utf-8\n");
+                builder.append("\n");
+                builder.append(chosenDog + " wishes you had given them more treats. Congratulations, " + chosenDog +
+                        " doesn't like you anymore.");
+              }
+              else if(numTreats > 5 && numTreats < 10) {
+                builder.append("HTTP/1.1 200 OK\n");
+                builder.append("Content-Type: text/html; charset=utf-8\n");
+                builder.append("\n");
+                builder.append(chosenDog + " is satisfied by your number of treats. " + chosenDog +
+                        " will be your faithful companion forever.");
+              }
+              else if(numTreats > 10) {
+                builder.append("HTTP/1.1 200 OK\n");
+                builder.append("Content-Type: text/html; charset=utf-8\n");
+                builder.append("\n");
+                builder.append("What were you thinking, giving a dog that many treats?? " +chosenDog +
+                        " is now sick and you're going to have to pay a heft vet bill.");
+              }
+            }
+          }
+
+        } else {
           // if the request is not recognized at all
 
           builder.append("HTTP/1.1 400 Bad Request\n");
