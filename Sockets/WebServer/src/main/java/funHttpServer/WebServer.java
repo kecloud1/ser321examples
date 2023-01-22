@@ -399,7 +399,7 @@ class WebServer {
                 builder.append("\n");
                 builder.append(chosenDog + " is satisfied by your number of treats. " + chosenDog +
                         " will be your faithful companion forever. <br>");
-                builder.append("<html><body> <img src=\"happy.jpg\" style =\"max-width:500px;max-height:500px\" /> </body></html>");
+                builder.append("<html><body> <img src=\"https://media.istockphoto.com/id/983625496/vector/golden-retriever-collie-mixed-breed-dog-hoping-to-be-adopted.jpg?s=612x612&w=0&k=20&c=89VDWnrJ_AKiMa0DiW9CQ_WnjEzVZ0tknBhSueYAoVs=\" style =\"max-width:500px;max-height:500px\" /> </body></html>");
               }
               else if(numTreats >= 10) {
                 builder.append("HTTP/1.1 200 OK\n");
