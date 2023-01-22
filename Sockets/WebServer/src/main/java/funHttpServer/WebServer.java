@@ -286,9 +286,16 @@ class WebServer {
           Map<String, String> query_pairs = new LinkedHashMap<String, String>();
           // extract path parameters
           query_pairs = splitQuery(request.replace("story?", ""));
-          String name = query_pairs.get("name");
-          String persPronoun = query_pairs.get("pronoun");
-          System.out.println(persPronoun);
+          String name;
+          String persPronoun;
+          try{
+            name = query_pairs.get("name");
+            persPronoun = query_pairs.get("pronoun"); }
+          catch (Exception e) {
+            name = "Bob";
+            persPronoun = "he";
+          }
+
           String possPronoun;
           String capPersPronoun;
           if (name.length() == 0) {
