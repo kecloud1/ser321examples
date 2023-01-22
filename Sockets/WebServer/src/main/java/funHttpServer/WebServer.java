@@ -285,13 +285,15 @@ class WebServer {
         } else if (request.contains("story")) {
           Map<String, String> query_pairs = new LinkedHashMap<String, String>();
           // extract path parameters
+          boolean caughtException = false;
           try {
             query_pairs = splitQuery(request.replace("story?", ""));
           } catch(Exception e) {
             builder.append("HTTP/1.1 400 Bad Request\n");
             builder.append("Content-Type: text/html; charset=utf-8\n");
             builder.append("\n");
-            builder.append("Path specified could not be processed");
+            builder.append("Path specified could not be processed. Here's a story about Bob.");
+            caughtException = true;
           }
           String name;
           String persPronoun;
@@ -300,7 +302,7 @@ class WebServer {
             persPronoun = query_pairs.get("pronoun"); }
           catch (Exception e) {
             name = "Bob";
-            persPronoun = "he";
+            persPronoun = "They";
           }
 
           String possPronoun;
@@ -337,9 +339,11 @@ class WebServer {
             capPersPronoun = "They";
           }
 
-          builder.append("HTTP/1.1 200 OK \n");
-          builder.append("Content-Type: text/html; charset=utf-8\n");
-          builder.append("\n");
+          if (caughtException == false) {
+            builder.append("HTTP/1.1 200 OK \n");
+            builder.append("Content-Type: text/html; charset=utf-8\n");
+            builder.append("\n");
+          }
           builder.append("There once was a student named " + name +". "+ capPersPronoun + " tried " + possPronoun +
                   " hardest to pass ser321. After many long nights, and countless cups of coffee, " + name +
                   " passed and moved on to " + possPronoun + " next endeavor.");
