@@ -298,6 +298,14 @@ class WebServer {
 
           String possPronoun;
           String capPersPronoun;
+          if (name == null){
+            name = "Bob";
+          }
+          if (persPronoun == null){
+            persPronoun = "he";
+          }
+
+
           if (name.length() == 0) {
             name = "Bob";
             persPronoun = "he";
