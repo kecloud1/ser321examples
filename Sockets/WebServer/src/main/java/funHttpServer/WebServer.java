@@ -299,11 +299,11 @@ class WebServer {
             capPersPronoun = "They";
           }
 
-          if(persPronoun == "he"){
+          if(persPronoun.equalsIgnoreCase("he")){
             capPersPronoun = "He";
             possPronoun = "his";
           }
-          else if(persPronoun == "she"){
+          else if(persPronoun.equalsIgnoreCase("she")){
             capPersPronoun = "She";
             possPronoun = "her";
           }
