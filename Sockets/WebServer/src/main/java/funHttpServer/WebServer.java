@@ -291,10 +291,13 @@ class WebServer {
           System.out.println(persPronoun);
           String possPronoun;
           String capPersPronoun;
-          if (name == null) {
+          if (name.length() == 0) {
             name = "Bob";
+            persPronoun = "he";
+            capPersPronoun = "He";
+            possPronoun = "his";
           }
-          if (persPronoun == null){
+          if (persPronoun.length() == 0){
             persPronoun = "they";
             capPersPronoun = "They";
           }
@@ -316,7 +319,7 @@ class WebServer {
           builder.append("Content-Type: text/html; charset=utf-8\n");
           builder.append("\n");
           builder.append("There once was a student named " + name +". "+ capPersPronoun + " tried " + possPronoun +
-                  " hardest to pass ser321. After many long night, and countless cups of coffee, " + name +
+                  " hardest to pass ser321. After many long nights, and countless cups of coffee, " + name +
                   " passed and moved on to " + possPronoun + " next endeavor.");
 
         }else {
