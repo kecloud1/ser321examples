@@ -392,6 +392,8 @@ class WebServer {
                 builder.append("\n");
                 builder.append(chosenDog + " wishes you had given them more treats. Congratulations, " + chosenDog +
                         " doesn't like you anymore.");
+                builder.append("<html><body> <img src=\"https://media.tenor.com/_0QpKUFeScQAAAAM/dog-dogs.gif\" style =\"max-width:500px;max-height:500px\" /> </body></html>");
+
               }
               else if(numTreats >= 5 && numTreats < 10) {
                 builder.append("HTTP/1.1 200 OK\n");
