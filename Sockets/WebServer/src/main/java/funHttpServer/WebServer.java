@@ -275,7 +275,7 @@ class WebServer {
               builder.append("Repo owner: " + ownerName);
               builder.append("<br>");
               builder.append("Repo name: " + repoName);
-              builder.append("<br>");
+              builder.append("<br>-------------------------------------<br>");
 
             }
             // TODO: Parse the JSON returned by your fetch and create an appropriate
