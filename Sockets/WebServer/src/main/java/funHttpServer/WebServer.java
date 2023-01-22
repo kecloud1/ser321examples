@@ -273,9 +273,9 @@ class WebServer {
               String ownerName = owner.getString("login");
               String repoName = repo.getString("name");
               builder.append("Repo owner: " + ownerName);
-              builder.append("\n");
+              builder.append("<br>");
               builder.append("Repo name: " + repoName);
-              builder.append("\n");
+              builder.append("<br>");
 
             }
             // TODO: Parse the JSON returned by your fetch and create an appropriate
