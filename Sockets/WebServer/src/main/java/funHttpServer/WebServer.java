@@ -249,6 +249,7 @@ class WebServer {
           // "Owner's repo is named RepoName. Example: find RepoName's contributors" translates to
           //     "/repos/OWNERNAME/REPONAME/contributors"
 
+          try {
           Map<String, String> query_pairs = new LinkedHashMap<String, String>();
           query_pairs = splitQuery(request.replace("github?", ""));
           String json = fetchURL("https://api.github.com/" + query_pairs.get("query"));
@@ -267,7 +268,7 @@ class WebServer {
             JSONArray repoArray = new JSONArray(json);
             JSONArray repoList = new JSONArray();
 
-            for(int i = 0; i<repoArray.length(); i++){
+            for (int i = 0; i < repoArray.length(); i++) {
               JSONObject repo = repoArray.getJSONObject(i);
               JSONObject owner = repo.getJSONObject("owner");
               String ownerName = owner.getString("login");
@@ -276,11 +277,16 @@ class WebServer {
               builder.append("<br>");
               builder.append("Repo name: " + repoName);
               builder.append("<br>-------------------------------------<br>");
-
             }
-            // TODO: Parse the JSON returned by your fetch and create an appropriate
-            // response based on what the assignment document asks for
+          }
 
+
+
+          } catch (Exception e) {
+            builder.append("HTTP/1.1 400 Bad Request\n");
+            builder.append("Content-Type: text/html; charset=utf-8\n");
+            builder.append("\n");
+            builder.append("Request could not be completed as specified. Please check path entries.");
           }
         } else if (request.contains("story")) {
           Map<String, String> query_pairs = new LinkedHashMap<String, String>();
