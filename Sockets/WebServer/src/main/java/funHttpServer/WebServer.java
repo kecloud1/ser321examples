@@ -391,7 +391,7 @@ class WebServer {
                 builder.append("Content-Type: text/html; charset=utf-8\n");
                 builder.append("\n");
                 builder.append(chosenDog + " wishes you had given them more treats. Congratulations, " + chosenDog +
-                        " doesn't like you anymore.");
+                        " doesn't like you anymore.<br>");
                 builder.append("<html><body> <img src=\"https://media.tenor.com/_0QpKUFeScQAAAAM/dog-dogs.gif\" style =\"max-width:500px;max-height:500px\" /> </body></html>");
 
               }
@@ -408,7 +408,9 @@ class WebServer {
                 builder.append("Content-Type: text/html; charset=utf-8\n");
                 builder.append("\n");
                 builder.append("What were you thinking, giving a dog that many treats?? " +chosenDog +
-                        " is now sick and you're going to have to pay a hefty vet bill.");
+                        " is now sick and you're going to have to pay a hefty vet bill. <br>");
+                builder.append("<html><body> <img src=\"https://media4.giphy.com/media/3o7abK9Hcr7hjAirmM/giphy.gif\" style =\"max-width:500px;max-height:500px\" /> </body></html>");
+
               }
             }
           }
