@@ -9,10 +9,14 @@
 			<li>/json -- returns a json of the /random request</a></li>
 			<li>/random -- returns index.html</a></li>
 			<li>/multiply?num1=1&num2=2</a></li>
-			<li>/github?query=users/USERNAME/repos -- returns a list of each repository belonging to the specified
+			<li>/github?query=users/[USERNAME]/repos -- returns a list of each repository belonging to the specified
 			user </li>
-			<li>/story?name=Kelsey&pronoun=he -- returns a story about the person using the personal pronoun entered. If
-			no pronoun is entered a gender neutral one is used. If no name is included, you will get a story about Bob.</li>
+			<li>/story?name=[STRING]&pronoun=[STRING] -- returns a story about the person using the personal pronoun entered. If
+			no pronoun is entered a gender-neutral one is used. If no name is included, you will get a story about Bob.
+				Example pronouns: he, she, they</li>
+			<li>/feedthedog?dogID=[INTEGER]&numTreats=[INTEGER] -- Feeds the requested dog the number of treats specified
+				and displays result. The dogID must be a number between 1 and 5.
+			</li>
 
 		</ul>
 		<h3>File Structure in www (you can use /file/www/FILENAME):</h3>
