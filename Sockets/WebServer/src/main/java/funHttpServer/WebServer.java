@@ -282,7 +282,42 @@ class WebServer {
             // response based on what the assignment document asks for
 
           }
-        } else {
+        } else if (request.contains("story")){
+          Map<String, String> query_pairs = new LinkedHashMap<String, String>();
+          // extract path parameters
+          query_pairs = splitQuery(request.replace("story?", ""));
+          String name = query_pairs.get("name");
+          String persPronoun = query_pairs.get("pronoun");
+          String possPronoun;
+          String capPersPronoun;
+          if (name == null) {
+            name = "Bob";
+          }
+          if (persPronoun == null){
+            persPronoun = "they";
+            capPersPronoun = "They";
+          }
+
+          if(persPronoun == "he"){
+            capPersPronoun = "They";
+            possPronoun = "his";
+          }
+          else if(persPronoun == "she"){
+            capPersPronoun = "They";
+            possPronoun = "her";
+          }
+          else{
+            possPronoun = "their";
+            capPersPronoun = "They";
+          }
+
+          builder.append("HTTP/1.1 200 OK \n");
+          builder.append("Content-Type: text/html; charset=utf-8\n");
+          builder.append("\n");
+          builder.append("There once was a student named " + name +". "+ capPersPronoun + " tried " + possPronoun +
+                  " hardest to pass ser321. After many long night, and countless cups of coffee, " + name + " passed with an A.");
+
+        }else {
           // if the request is not recognized at all
 
           builder.append("HTTP/1.1 400 Bad Request\n");
