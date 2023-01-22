@@ -378,7 +378,7 @@ class WebServer {
               builder.append("dogID needs to be a number between 1 and 5. Please try again.");
             }
             else {
-              int numTreats = Integer.parseInt(query_pairs.get("numberOfTreats"));
+              int numTreats = Integer.parseInt(query_pairs.get("numOfTreats"));
 
               int dogID = Integer.parseInt(query_pairs.get("dogID")) - 1;
 
