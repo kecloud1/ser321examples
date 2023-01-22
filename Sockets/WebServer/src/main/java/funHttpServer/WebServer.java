@@ -282,10 +282,17 @@ class WebServer {
             // response based on what the assignment document asks for
 
           }
-        } else if (request.contains("story")){
+        } else if (request.contains("story")) {
           Map<String, String> query_pairs = new LinkedHashMap<String, String>();
           // extract path parameters
-          query_pairs = splitQuery(request.replace("story?", ""));
+          try {
+            query_pairs = splitQuery(request.replace("story?", ""));
+          } catch(Exception e) {
+            builder.append("HTTP/1.1 400 Bad Request\n");
+            builder.append("Content-Type: text/html; charset=utf-8\n");
+            builder.append("\n");
+            builder.append("Path specified could not be processed");
+          }
           String name;
           String persPronoun;
           try{
