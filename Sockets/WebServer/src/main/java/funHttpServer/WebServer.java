@@ -316,7 +316,8 @@ class WebServer {
           builder.append("Content-Type: text/html; charset=utf-8\n");
           builder.append("\n");
           builder.append("There once was a student named " + name +". "+ capPersPronoun + " tried " + possPronoun +
-                  " hardest to pass ser321. After many long night, and countless cups of coffee, " + name + " passed and moved on.");
+                  " hardest to pass ser321. After many long night, and countless cups of coffee, " + name +
+                  " passed and moved on to " + possPronoun + " next endeavor.");
 
         }else {
           // if the request is not recognized at all
