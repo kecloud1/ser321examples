@@ -292,7 +292,7 @@ class WebServer {
             builder.append("HTTP/1.1 400 Bad Request\n");
             builder.append("Content-Type: text/html; charset=utf-8\n");
             builder.append("\n");
-            builder.append("Path specified could not be processed. Here's a story about Bob.");
+            builder.append("Path specified could not be processed. Here's a story about Bob. <br> ");
             caughtException = true;
           }
           String name;
