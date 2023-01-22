@@ -288,6 +288,7 @@ class WebServer {
           query_pairs = splitQuery(request.replace("story?", ""));
           String name = query_pairs.get("name");
           String persPronoun = query_pairs.get("pronoun");
+          System.out.println(persPronoun);
           String possPronoun;
           String capPersPronoun;
           if (name == null) {
@@ -314,7 +315,7 @@ class WebServer {
           builder.append("HTTP/1.1 200 OK \n");
           builder.append("Content-Type: text/html; charset=utf-8\n");
           builder.append("\n");
-          builder.append("There once was a student named " + name +". <br>"+ capPersPronoun + " tried " + possPronoun +
+          builder.append("There once was a student named " + name +". "+ capPersPronoun + " tried " + possPronoun +
                   " hardest to pass ser321. After many long night, and countless cups of coffee, " + name + " passed and moved on.");
 
         }else {
