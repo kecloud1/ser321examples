@@ -262,11 +262,12 @@ class WebServer {
             builder.append("User not found or request not formatted correctly.");
           }
           else {
+            JSONArray repoArray = new JSONArray(json);
+            JSONArray repoList = new JSONArray();
+
             builder.append("HTTP/1.1 200 OK\n");
             builder.append("Content-Type: text/html; charset=utf-8\n");
             builder.append("\n");
-            JSONArray repoArray = new JSONArray(json);
-            JSONArray repoList = new JSONArray();
 
             for (int i = 0; i < repoArray.length(); i++) {
               JSONObject repo = repoArray.getJSONObject(i);
@@ -279,8 +280,6 @@ class WebServer {
               builder.append("<br>-------------------------------------<br>");
             }
           }
-
-
 
           } catch (Exception e) {
             builder.append("HTTP/1.1 400 Bad Request\n");
