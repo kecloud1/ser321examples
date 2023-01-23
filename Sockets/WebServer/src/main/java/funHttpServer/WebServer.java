@@ -369,19 +369,12 @@ class WebServer {
             builder.append("Path specified could not be processed. Please recheck path and try again.");
             caughtException = true;
           }
-          if(Integer.parseInt(query_pairs.get("dogID")) <= 0){
-            builder.append("HTTP/1.1 400 Bad Request\n");
-            builder.append("Content-Type: text/html; charset=utf-8\n");
-            builder.append("\n");
-            builder.append("You have to choose a dog to feed, duh. Choose a number 1 through 5. ");
-          }
-
-          else if (caughtException == false){
-            if (Integer.parseInt(query_pairs.get("dogID")) > 5 || Integer.parseInt(query_pairs.get("dogID")) < 0){
+          if (caughtException == false){
+            if (Integer.parseInt(query_pairs.get("dogID")) > 5 || Integer.parseInt(query_pairs.get("dogID")) <= 0){
               builder.append("HTTP/1.1 400 Bad Request\n");
               builder.append("Content-Type: text/html; charset=utf-8\n");
               builder.append("\n");
-              builder.append("dogID needs to be a number between 1 and 5. Please try again.");
+              builder.append("You have to choose a dog to feed, duh. Choose a number 1 through 5 for dogID.");
             }
             else {
               int numTreats = Integer.parseInt(query_pairs.get("numTreats"));
